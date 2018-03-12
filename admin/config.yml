@@ -4,19 +4,16 @@ publish_mode: editorial_workflow
 media_folder: "images/uploads" # Media files will be stored in the repo under images/uploads
 
 collections:
-  - name: "posts" # Used in routes, ie.: /admin/collections/:slug/edit
-    label: "Posts" # Used in the UI
-    label_singular: "Post" # Used in the UI, ie: "New Post"
-    description: >
-      The description is a great place for tone setting, high level information, and editing
-      guidelines that are specific to a collection.
-    folder: "_posts"
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields each document in this collection have
-      - {label: "Title", name: "title", widget: "string", tagname: "h1"}
-      - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD hh:mma"}
-      - {label: "Cover Image", name: "image", widget: "image", required: false, tagname: ""}
-      - {label: "Body", name: "body", widget: "markdown"}
-    meta:
-      - {label: "SEO Description", name: "description", widget: "text"}
+  - name: "articles"
+    label: "Articles"
+    label_singular: "Article"
+    folder: "_collections/_articles"
+    create: true
+    slug: "{{slug}}"
+    extension: html
+    fields:
+        - {label: "Layout", name: "layout", widget: "hidden", default: "default"}
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Description", name: "description", widget: "text", required: false}
+        - {label: "Keywords", name: "keywords", widget: "text", required: false}
+        - {label: "Body", name: "body", widget: "markdown"}
