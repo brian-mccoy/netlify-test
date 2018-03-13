@@ -29,6 +29,21 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+layouts_dir: _html/_layouts
+includes_dir: _html/_includes
+
+collections_dir:     _collections
+collections:
+  pages:
+    output:          true;
+    permalink:       :path
+
+# Defaults
+defaults:
+  - scope:
+      path:          "" # an empty string here means all files in the project
+    values:
+      layout:        "default"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
